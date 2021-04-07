@@ -27,16 +27,35 @@ ul{
 
 li{
     border-bottom: 1px solid #eee;    
-    color : #eee;
     font-size: 16px;
     padding: 0.5rem;
     margin : 5px 0 5px 0;
+    display:flex;
+    justify-content: space-between;
+}
+.todoText{
+    width: 100%;
     cursor:pointer;
-    user-select: none; 
     transition: 0.2s all;
+    color : #eee;
+    user-select: none; 
 }
 
-li:hover{
+.deleteBtn, .modifyBtn{
+    background: none;;
+    color:#eee;
+    border:none;
+    cursor : pointer;
+    transition : 0.3s all;
+}
+.modifyBtn:hover{
+    color : orange;
+}
+.deleteBtn:hover{
+    color : rgb(158, 27, 27);
+}
+
+.todoText:hover{
     color : #3143a8;
 }
 

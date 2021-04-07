@@ -14,6 +14,7 @@ export default class TodoList extends Component {
                             id={todo.id}
                             completed={todo.completed}
                             clicked={this.props.clicked.bind(this)}
+                            delete={this.props.delete.bind(this)}
                             />
                     ))}
                 </ul>
@@ -21,8 +22,4 @@ export default class TodoList extends Component {
         )
     }
 }
-
-// TodoList.propTypes = {
-//     clicked: React.PropTypes.func
-//   };
 

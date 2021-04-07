@@ -23,15 +23,21 @@ export default class App extends Component {
     remaining : 0
   }
 
-  clicked = (id)=>{
+  clicked = (id) => {
     this.setState({ todos:this.state.todos.map(todo=>{
       if(todo.id === id){
         todo.completed = !todo.completed;
       }
       return todo;
     })})
-    
   };
+
+  delete = (id) => {
+    console.log(id);
+    this.setState({todos:this.state.todos.filter(todo=>{
+      return todo.id !== id;
+    })})
+  }
   render(){
     const { remaining, todos } = this.state;
     return(
@@ -41,7 +47,9 @@ export default class App extends Component {
         <TodoForm />
         <TodoList  
             todos={todos} 
-            clicked={this.clicked}/>
+            clicked={this.clicked}
+            delete={this.delete}/>
+            
       </div>  
     );
   }
