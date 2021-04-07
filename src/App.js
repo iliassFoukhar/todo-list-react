@@ -22,14 +22,31 @@ export default class App extends Component {
     }],
     remaining : 0
   }
+
+  clicked = (id)=>{
+    this.setState({ todos:this.state.todos.map(todo=>{
+      if(todo.id === id){
+        todo.completed = !todo.completed;
+      }
+      return todo;
+    })})
+    
+  };
   render(){
     const { remaining, todos } = this.state;
     return(
       <div className="App">
-        <TodoHeader remaining={remaining}/>
+        <TodoHeader 
+            remaining={remaining}/>
         <TodoForm />
-        <TodoList  todos={todos}/>
+        <TodoList  
+            todos={todos} 
+            clicked={this.clicked}/>
       </div>  
     );
   }
 }
+
+// App.propTypes = {
+//   clicked: React.PropTypes.func
+// };

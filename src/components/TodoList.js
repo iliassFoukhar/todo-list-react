@@ -9,11 +9,11 @@ export default class TodoList extends Component {
             <div className="todoList">
                 <ul>
                     {todos.map((todo, key)=>(
-                        //<li key={key}>{todo.text}</li>
                         <Todo 
                             text={todo.text} 
                             id={todo.id}
                             completed={todo.completed}
+                            clicked={this.props.clicked.bind(this)}
                             />
                     ))}
                 </ul>
@@ -21,3 +21,8 @@ export default class TodoList extends Component {
         )
     }
 }
+
+// TodoList.propTypes = {
+//     clicked: React.PropTypes.func
+//   };
+

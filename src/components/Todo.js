@@ -19,10 +19,15 @@ export default class Todo extends Component {
     render() {
         const { text, id} = this.props;
         this.todoStyle = this.todoStyle.bind(this);
+        
         return (
-            <li style={this.todoStyle()}>
-                {text}
-            </li>
+            <li key={id} 
+                style={this.todoStyle()} 
+                onClick={this.props.clicked.bind(this, id)} 
+            >{text}</li>
         );
     }
 }
+// Todo.propTypes = {
+//     clicked: React.PropTypes.func
+//   };

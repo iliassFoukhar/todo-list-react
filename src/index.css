@@ -9,7 +9,7 @@
 body{
     padding : 0;
     margin : 0;
-    background-color : #000;
+    background-color : rgb(26, 26, 26);
     height:100vh;
     width:100vw;
 }
@@ -22,21 +22,27 @@ body{
 ul{
     list-style:none;
     margin : 0;
+    padding : 1rem;
 }
 
 li{
-    border: 1px solid #eee;    
+    border-bottom: 1px solid #eee;    
     color : #eee;
     font-size: 16px;
-    width : 90%;
     padding: 0.5rem;
-    margin : 5px 0 0 0;
+    margin : 5px 0 5px 0;
+    cursor:pointer;
+    user-select: none; 
+    transition: 0.2s all;
 }
 
+li:hover{
+    color : #3143a8;
+}
 
 div.App{
     
-    background-color:#301b3f; 
+    background-color:#0f0f0f; 
     width : 40rem;
     color : #eee;
     position:absolute;
@@ -49,12 +55,11 @@ div.App{
 form{
     display:flex;
     justify-content:space-between;
-    background-color : #151515;    
+    background-color : #2e2e2e;    
     padding : 1rem;
+
 }
 #addBtn{
-    border-top-right-radius : 0.3rem;
-    border-bottom-right-radius : 0.3rem;
     background-color: #3c415c;
     color : white;
     font-weight: 600;
@@ -62,21 +67,27 @@ form{
     padding: 0.4rem;
     cursor:pointer;
     transition: all 0.3s;
+    height : 32.8px;
+    width: 32.8px;    
 }
 
 #addBtn:hover{
     background-color: #434e8b;
 }
 
-
-form input[type="text"]{
+.formAdd{
+    border-radius: 0.3rem;
     width:100%;
-    border-top-left-radius : 0.3rem;
-    border-bottom-left-radius : 0.3rem;
-    padding: 0.4rem;
+    display:flex;
+    overflow:hidden;
 }
-form input[type="text"]:focus{
-    border:2px solid #3c415c;
+form div input[type="text"]{
+    width: 100%;
+    padding: 0.4rem;
+    border:none;
+}
+form div input[type="text"]:focus{
+    border-color: #3c415c;
     outline: none !important;
 
 
@@ -86,10 +97,10 @@ form label{
     padding: 0.4rem;
 }
 header{
-    background-color: #3c415c;
+    background-color: #0f0f0f;
     margin:0;
     padding: 1rem;
-    
+    border-radius : 0.7rem;
 }
 
 header h3{
