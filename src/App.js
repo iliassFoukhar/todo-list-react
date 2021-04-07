@@ -76,7 +76,7 @@ export default class App extends Component {
       todos:this.state.todos.filter(todo=>{
           return todo.id !== id;
     })});
-    if(wasDone == false){
+    if(wasDone === false){
       this.setState({
         remaining: this.state.remaining - 1
       });
