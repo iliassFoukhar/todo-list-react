@@ -15,6 +15,7 @@ export default class TodoList extends Component {
                             completed={todo.completed}
                             clicked={this.props.clicked.bind(this)}
                             delete={this.props.delete.bind(this)}
+                            update={this.props.update.bind(this)}
                             />
                     ))}
                 </ul>

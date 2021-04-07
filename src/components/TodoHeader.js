@@ -6,7 +6,7 @@ export default class TodoHeader extends Component {
             return (
                 <header>
                     <h1>Hello Iliass</h1>
-                    <h3>You have no more tasks to do</h3>
+                    <h3 id="remaining">You have no more tasks to do</h3>
                 </header>
             )
         }
@@ -14,9 +14,7 @@ export default class TodoHeader extends Component {
             return (
                 <header>
                     <h1>Hello Iliass</h1>
-                    <h3 
-                        id="remaining"
-                        align="center">You have {this.props.remaining} tasks left</h3>
+                    <h3 id="remaining">You have {this.props.remaining} tasks left</h3>
                 </header>
             )
         }

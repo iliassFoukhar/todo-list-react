@@ -100,16 +100,14 @@ form{
     display:flex;
     overflow:hidden;
 }
-form div input[type="text"]{
+form div input[type="text"], li input[type="text"]{
     width: 100%;
     padding: 0.4rem;
     border:none;
 }
-form div input[type="text"]:focus{
+form div input[type="text"]:focus, li input[type="text"]:focus{
     border-color: #3c415c;
     outline: none !important;
-
-
 }
 form label{
     width:100%;

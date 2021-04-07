@@ -20,23 +20,68 @@ export default class App extends Component {
       text: "Develop a speed typing test app",
       completed: false
     }],
-    remaining : 0
+    remaining : 2
   }
 
   clicked = (id) => {
-    this.setState({ todos:this.state.todos.map(todo=>{
+    let rem = this.state.remaining;
+    this.setState({ 
+      todos:this.state.todos.map(todo=>{
       if(todo.id === id){
         todo.completed = !todo.completed;
+        if(todo.completed === true){
+          rem -= 1;
+        }
+        else{
+          rem += 1;
+        }
+      }
+      return todo;
+    })});
+
+    this.setState({remaining: rem});
+  };
+
+  addTodo = (text) => {
+    let newTodos = [...this.state.todos];
+    let id = newTodos[newTodos.length-1] + 1;
+    let newTodo = {
+      id:id,
+      text:text,
+      completed:false
+    };
+    newTodos= [...newTodos, newTodo];
+    this.setState({
+      todos : newTodos,
+      remaining : this.state.remaining + 1
+    }) 
+  }
+  update = (id, text) => {
+    this.setState({ todos:this.state.todos.map(todo=>{
+      if(todo.id === id){
+        todo.text = text;
       }
       return todo;
     })})
   };
-
   delete = (id) => {
-    console.log(id);
-    this.setState({todos:this.state.todos.filter(todo=>{
-      return todo.id !== id;
-    })})
+    let wasDone = false;
+    this.state.todos.map(todo=>{
+      if(id === todo.id){
+        wasDone = todo.completed;
+      }
+      return todo;
+    })
+    this.setState({
+      todos:this.state.todos.filter(todo=>{
+          return todo.id !== id;
+    })});
+    if(wasDone == false){
+      this.setState({
+        remaining: this.state.remaining - 1
+      });
+    }
+    
   }
   render(){
     const { remaining, todos } = this.state;
@@ -44,17 +89,15 @@ export default class App extends Component {
       <div className="App">
         <TodoHeader 
             remaining={remaining}/>
-        <TodoForm />
+        <TodoForm 
+            addTodo={this.addTodo}/>
         <TodoList  
             todos={todos} 
             clicked={this.clicked}
-            delete={this.delete}/>
-            
+            delete={this.delete}
+            update={this.update}
+            />            
       </div>  
     );
   }
 }
-
-// App.propTypes = {
-//   clicked: React.PropTypes.func
-// };
